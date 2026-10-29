@@ -4,11 +4,12 @@ const REPOS_URL = `https://api.github.com/users/${GITHUB_USER}/repos?sort=update
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const themeToggle = document.getElementById('theme-toggle');
+const themeLabel = themeToggle.querySelector('.theme-label');
 
+// The button names the theme it switches to: "[ dark ]" in light mode, "[ light ]" in dark mode.
 function syncThemeToggle() {
   const dark = document.body.classList.contains('dark');
-  themeToggle.textContent = dark ? 'Light mode' : 'Dark mode';
-  themeToggle.setAttribute('aria-pressed', String(dark));
+  themeLabel.textContent = dark ? 'light' : 'dark';
 }
 
 themeToggle.addEventListener('click', () => {
@@ -30,32 +31,25 @@ function showMessage(container, text) {
   container.replaceChildren(p);
 }
 
-function repoCard(repo) {
-  const card = document.createElement('article');
-  card.className = 'card';
-
-  const title = document.createElement('h3');
-  title.textContent = repo.name;
-
-  const desc = document.createElement('p');
-  desc.textContent = repo.description || 'No description provided.';
-
-  const meta = document.createElement('div');
-  meta.className = 'repo-meta';
-  const lang = document.createElement('span');
-  lang.textContent = repo.language || 'No language';
-  const stars = document.createElement('span');
-  stars.textContent = `★ ${repo.stargazers_count}`;
-  stars.setAttribute('aria-label', `${repo.stargazers_count} stars`);
-  meta.append(lang, stars);
+function repoRow(repo) {
+  const item = document.createElement('li');
 
   const link = document.createElement('a');
+  link.className = 'repo-row';
   link.href = repo.html_url;
   link.rel = 'noopener';
-  link.textContent = 'View repository →';
 
-  card.append(title, desc, meta, link);
-  return card;
+  const name = document.createElement('span');
+  name.className = 'repo-name';
+  name.textContent = repo.name;
+
+  const meta = document.createElement('span');
+  meta.className = 'repo-meta';
+  meta.textContent = `${repo.language || 'no language'} · ★ ${repo.stargazers_count}`;
+
+  link.append(name, meta);
+  item.append(link);
+  return item;
 }
 
 async function loadRepos() {
@@ -63,12 +57,19 @@ async function loadRepos() {
   try {
     const res = await fetch(REPOS_URL, { headers: { Accept: 'application/vnd.github+json' } });
     if (!res.ok) throw new Error(`GitHub responded with ${res.status}`);
-    const repos = await res.json();
-    if (!Array.isArray(repos) || repos.length === 0) {
+    const data = await res.json();
+    // Skip the profile README repo, which shares the username.
+    const repos = Array.isArray(data)
+      ? data.filter((repo) => repo.name.toLowerCase() !== GITHUB_USER.toLowerCase())
+      : [];
+    if (repos.length === 0) {
       showMessage(container, 'No public repositories to show yet.');
       return;
     }
-    container.replaceChildren(...repos.map(repoCard));
+    const list = document.createElement('ul');
+    list.className = 'repo-rows';
+    list.append(...repos.map(repoRow));
+    container.replaceChildren(list);
   } catch (err) {
     console.error(err);
     showMessage(container, 'Could not load repositories right now. See them on GitHub instead.');
@@ -76,6 +77,26 @@ async function loadRepos() {
 }
 
 loadRepos();
+
+// Highlight the nav link for the section currently in view.
+const navLinks = new Map(
+  [...document.querySelectorAll('.pill-nav a')].map((a) => [a.getAttribute('href').slice(1), a])
+);
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (!entry.isIntersecting) continue;
+    for (const [id, a] of navLinks) {
+      if (id === entry.target.id) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    }
+  }
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+for (const id of navLinks.keys()) {
+  const section = document.getElementById(id);
+  if (section) sectionObserver.observe(section);
+}
 
 const backToTop = document.getElementById('back-to-top');
 const hero = document.getElementById('hero');

@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Valerie Tan · Portfolio</title>
-  <meta name="description" content="Valerie Tan, software engineering student at the Singapore Institute of Technology.">
+  <meta name="description" content="Valerie Tan, software engineering student at the Singapore Institute of Technology, building web and mobile apps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,96 +20,211 @@
       document.body.classList.toggle('dark', dark);
     })();
   </script>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#hero">Valerie Tan</a>
-      <nav aria-label="Sections">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#repos">Repos</a>
-        <a href="#contact">Contact</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="#hero">valerie.tan<span class="accent">_</span></a>
+      <button id="theme-toggle" class="theme-toggle" type="button">
+        <span class="visually-hidden">Switch to </span><span aria-hidden="true">[ </span><span class="theme-label">dark</span><span aria-hidden="true"> ]</span><span class="visually-hidden"> mode</span>
+      </button>
+      <nav class="pill-nav" aria-label="Sections">
+        <a href="#about">about</a>
+        <a href="#skills">skills</a>
+        <a href="#projects">projects</a>
+        <a href="#repos">repos</a>
+        <a href="#contact">contact</a>
       </nav>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
     </div>
   </header>
 
-  <main>
-    <section id="hero" class="container">
-      <p class="eyebrow">Hello, I'm</p>
-      <h1>Valerie Tan</h1>
-      <p class="tagline">Software engineering student building reliable, well-tested web applications.</p>
-      <ul class="links">
-        <li><a class="button" href="mailto:valerietan742@gmail.com">Email</a></li>
-        <li><a class="button button-ghost" href="https://github.com/ValElizaTan" rel="noopener">GitHub</a></li>
-        <li><a class="button button-ghost" href="https://www.linkedin.com/in/tan-valerie" rel="noopener">LinkedIn</a></li>
-      </ul>
+  <main class="container bento">
+    <div class="row row-wide-narrow">
+      <section id="hero" class="card card-hero">
+        <p class="badge"><span class="dot" aria-hidden="true"></span>open to internships · entry-level app dev · from [month/year]</p>
+        <p class="mono accent-text">// software engineering · SIT · BEng ICT, exp. 2028</p>
+        <h1>Valerie Tan</h1>
+        <p class="tagline">Software engineering student building web and mobile apps, with six months of hands-on ABAP development from an SAP internship.</p>
+        <ul class="actions">
+          <li><a class="btn btn-filled" href="mailto:valerietan742@gmail.com">Email me</a></li>
+          <li><a class="btn" href="Valerie_Tan_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a></li>
+          <li><a class="btn" href="https://github.com/ValElizaTan" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
+          <li><a class="btn" href="https://www.linkedin.com/in/tan-valerie" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </section>
+
+      <article class="card card-exp" aria-labelledby="exp-title">
+        <p class="mono label">// experience</p>
+        <h2 id="exp-title">SAP Intern, VISEO</h2>
+        <p class="mono meta">Mar 2023 – Aug 2023 · 6 months</p>
+        <ul class="bullets">
+          <li>Built and documented custom ABAP programs and reports from stakeholder requirements.</li>
+          <li>Built and tested SAP Fiori app components for user-facing ERP functionality.</li>
+          <li>Fixed code issues with Eclipse ABAP Test Cockpit (ATC) ahead of review.</li>
+          <li>Wrote technical documentation for handover and maintenance.</li>
+        </ul>
+        <ul class="tags">
+          <li>SAP ABAP</li>
+          <li>SAP Fiori</li>
+          <li>SAP GUI</li>
+          <li>Eclipse ATC</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="row row-wide-narrow">
+      <section id="about" class="card">
+        <p class="mono label accent-text">01 / about</p>
+        <h2 class="visually-hidden">About</h2>
+        <p class="lead">I'm a Software Engineering student at the Singapore Institute of Technology, building web and mobile applications with Flutter, Jetpack Compose, Firebase and ASP.NET Core.</p>
+        <p>I apply object-oriented design and the full SDLC across coursework in mobile development, IoT systems and UI/UX design, and I enjoy working in teams and iterating on feedback. I'm looking for an internship or entry-level role in application development.</p>
+        <dl class="facts">
+          <div><dt>based in</dt><dd>Singapore</dd></div>
+          <div><dt>languages</dt><dd>English, Mandarin, Teochew</dd></div>
+          <div><dt>off-screen</dt><dd>guitar, film &amp; photo, video editing</dd></div>
+        </dl>
+      </section>
+
+      <section id="education" class="card">
+        <p class="mono label accent-text">02 / education</p>
+        <h2 class="visually-hidden">Education</h2>
+        <ol class="timeline">
+          <li>
+            <h3>Singapore Institute of Technology</h3>
+            <p>BEng (Hons) ICT, Software Engineering</p>
+            <p class="mono meta accent-text">expected 2028</p>
+          </li>
+          <li>
+            <h3>Nanyang Polytechnic</h3>
+            <p>Diploma in Infocom &amp; Media Engineering</p>
+            <p class="mono meta">2021 – 2024</p>
+          </li>
+          <li>
+            <h3>ITE College Central</h3>
+            <p>Higher NITEC in IT Systems &amp; Networks</p>
+            <p class="mono meta">2020 – 2021</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+
+    <section id="skills" class="card">
+      <p class="mono label accent-text">03 / skills</p>
+      <h2 class="visually-hidden">Skills</h2>
+      <div class="skill-grid">
+        <div class="skill-group">
+          <h3 class="mono">languages</h3>
+          <p>Java · Kotlin · Dart · C# · JavaScript · PHP · C · SAP ABAP</p>
+        </div>
+        <div class="skill-group">
+          <h3 class="mono">frameworks</h3>
+          <p>Flutter · Jetpack Compose · ASP.NET Core MVC · jQuery · MediaPipe</p>
+        </div>
+        <div class="skill-group">
+          <h3 class="mono">data</h3>
+          <p>SQL Server · MySQL · Room · Cloud Firestore · REST APIs</p>
+        </div>
+        <div class="skill-group">
+          <h3 class="mono">tools</h3>
+          <p>Android Studio · Visual Studio · IntelliJ · Eclipse · Git/GitHub · SAP GUI · SAP Fiori</p>
+        </div>
+        <div class="skill-group">
+          <h3 class="mono">testing &amp; practice</h3>
+          <p>Selenium · OOP · SDLC · Design Thinking</p>
+        </div>
+        <div class="skill-group">
+          <h3 class="mono">design &amp; networking</h3>
+          <p>Adobe Illustrator · Photoshop · Cisco IOS (router/switch)</p>
+        </div>
+      </div>
     </section>
 
-    <section id="about" class="container">
-      <h2>About</h2>
-      <p>I'm a third-year student at the Singapore Institute of Technology, based in Singapore. My coursework and team projects span full-stack web development, object-oriented design, data analysis and software testing, and I'm currently focused on performance testing and optimisation.</p>
-      <p>I enjoy turning requirements into working software, collaborating in teams, and making sure what I ship is tested and fast.</p>
-    </section>
-
-    <section id="skills" class="container">
-      <h2>Skills</h2>
-      <ul class="tags">
-        <li>JavaScript</li>
-        <li>TypeScript</li>
-        <li>HTML &amp; CSS</li>
-        <li>C# / .NET</li>
-        <li>Java</li>
-        <li>Python</li>
-        <li>SQL</li>
-        <li>Software testing</li>
-        <li>Performance testing</li>
-        <li>Git &amp; GitHub</li>
-      </ul>
-    </section>
-
-    <section id="projects" class="container">
-      <h2>Projects</h2>
-      <div class="grid">
-        <article class="card">
+    <section id="projects" class="card">
+      <div class="card-head">
+        <p class="mono label accent-text">04 / projects</p>
+        <a class="mono small-link" href="https://github.com/ValElizaTan?tab=repositories" rel="noopener">all on github <span aria-hidden="true">↗</span></a>
+      </div>
+      <h2 class="visually-hidden">Projects</h2>
+      <div class="project-grid">
+        <article class="project">
+          <p class="mono project-meta"><span>P.01 · web · prototype</span><span>● TypeScript</span></p>
           <h3>Asteri</h3>
-          <p>Fragrance e-commerce prototype with Singapore-inspired scents, custom gifts, rewards and a full checkout flow.</p>
-          <a href="https://github.com/ValElizaTan/Asteri" rel="noopener">View on GitHub →</a>
+          <p>A fragrance e-commerce website prototype with Singapore-inspired scents, customisable gifts, rewards, referrals and a complete shopping flow from product discovery to checkout.</p>
+          <p class="mono project-links"><a href="https://github.com/ValElizaTan/Asteri" rel="noopener">repo <span aria-hidden="true">↗</span></a></p>
         </article>
-        <article class="card">
+        <article class="project">
+          <p class="mono project-meta"><span>P.02 · team project</span><span>● C# · T-SQL</span></p>
+          <h3>ICT2112 P2</h3>
+          <p>[One line on what the system does.] Team project across modules 4 &amp; 6, with a C# front end and a T-SQL back end. [Your role.]</p>
+          <p class="mono project-links">
+            <a href="https://github.com/ValElizaTan/ICT2112-P2-Mod1" rel="noopener">module <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/ValElizaTan/ICT2112-P2-Backend" rel="noopener">backend <span aria-hidden="true">↗</span></a>
+          </p>
+        </article>
+        <article class="project">
+          <p class="mono project-meta"><span>P.03 · web app</span><span>● JavaScript</span></p>
+          <h3>SafeSplit</h3>
+          <p>[One line on what SafeSplit does.] [Your role and one result.]</p>
+          <p class="mono project-links"><a href="https://github.com/ValElizaTan/ict2216-safesplit" rel="noopener">repo <span aria-hidden="true">↗</span></a></p>
+        </article>
+        <article class="project">
+          <p class="mono project-meta"><span>P.04 · data · team</span><span>● Python</span></p>
           <h3>Skillset Analysis from JD Data</h3>
-          <p>NLP analysis in Python that extracts and categorises skills from job descriptions across industries and seniority levels.</p>
-          <a href="https://skillset-analysis-from-jd-data.onrender.com" rel="noopener">View live demo →</a>
+          <p>Analyses job descriptions across industries and entry, mid and senior levels to extract and categorise key skillsets using NLP.</p>
+          <p class="mono project-links">
+            <a href="https://github.com/ValElizaTan/Skillset-Analysis-from-JD-Data" rel="noopener">repo <span aria-hidden="true">↗</span></a>
+            <a href="https://skillset-analysis-from-jd-data.onrender.com" rel="noopener">live demo <span aria-hidden="true">↗</span></a>
+          </p>
         </article>
-        <article class="card">
-          <h3>Sample Lab Game</h3>
-          <p>Java game applying object-oriented design principles, built over a series of SIT labs.</p>
-          <a href="https://github.com/ValElizaTan/SampleLabGame" rel="noopener">View on GitHub →</a>
+        <article class="project">
+          <p class="mono project-meta"><span>P.05 · web API</span><span>● JavaScript</span></p>
+          <h3>Web API Assignment</h3>
+          <p>[One line on what the API does.] Built for the Web API Development module.</p>
+          <p class="mono project-links"><a href="https://github.com/ValElizaTan/webapi-assignment1" rel="noopener">repo <span aria-hidden="true">↗</span></a></p>
+        </article>
+        <article class="project">
+          <p class="mono project-meta"><span>P.06 · this site</span><span>● CSS · TypeScript</span></p>
+          <h3>valerie-site</h3>
+          <p>This portfolio: plain HTML and CSS, deployed to GitHub Pages by GitHub Actions, with Playwright tests in a separate repo that gate every pull request.</p>
+          <p class="mono project-links">
+            <a href="https://github.com/ValElizaTan/valerie-site" rel="noopener">site <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/ValElizaTan/valerie-site-tests" rel="noopener">tests <span aria-hidden="true">↗</span></a>
+          </p>
         </article>
       </div>
+      <p class="mono labs">coursework labs:
+        <a href="https://github.com/ValElizaTan/SampleLabGame" rel="noopener">SampleLabGame</a> (OOP labs 1–4, Java) ·
+        <a href="https://github.com/ValElizaTan/SOFTEST_INTRO_Labs" rel="noopener">SOFTEST_INTRO_Labs</a> (software testing, C#)
+      </p>
     </section>
 
-    <section id="repos" class="container">
-      <h2>GitHub repositories</h2>
-      <p class="muted">Recently updated public repositories, loaded live from GitHub.</p>
-      <div id="repo-list" class="grid" aria-live="polite">
-        <p class="muted">Loading repositories…</p>
-      </div>
-    </section>
+    <div class="row row-wide-narrow">
+      <section id="repos" class="card">
+        <div class="card-head">
+          <p class="mono label accent-text">05 / repositories</p>
+          <p class="mono note">recently updated · live from GitHub</p>
+        </div>
+        <h2 class="visually-hidden">GitHub repositories</h2>
+        <div id="repo-list" aria-live="polite">
+          <p class="muted">Loading repositories…</p>
+        </div>
+      </section>
 
-    <section id="contact" class="container">
-      <h2>Contact</h2>
-      <p>I'm open to internship and graduate opportunities. The best way to reach me is by email.</p>
-      <ul class="contact-list">
-        <li><span>Email</span><a href="mailto:valerietan742@gmail.com">valerietan742@gmail.com</a></li>
-        <li><span>GitHub</span><a href="https://github.com/ValElizaTan" rel="noopener">github.com/ValElizaTan</a></li>
-        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/tan-valerie" rel="noopener">linkedin.com/in/tan-valerie</a></li>
-      </ul>
-    </section>
+      <section id="contact" class="card card-contact">
+        <p class="mono label">06 / contact</p>
+        <h2 class="visually-hidden">Contact</h2>
+        <p>Looking for an undergraduate internship or entry-level role in application development. Email is the best way to reach me.</p>
+        <p class="email"><a href="mailto:valerietan742@gmail.com">valerietan742@gmail.com</a></p>
+        <ul class="mono contact-links">
+          <li><a href="https://github.com/ValElizaTan" rel="noopener">github <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.linkedin.com/in/tan-valerie" rel="noopener">linkedin <span aria-hidden="true">↗</span></a></li>
+          <li><a href="Valerie_Tan_CV.pdf" download>cv <span aria-hidden="true">↓</span></a></li>
+        </ul>
+      </section>
+    </div>
   </main>
 
-  <footer class="container footer">
+  <footer class="container site-footer mono">
     <p>© <span id="year"></span> Valerie Tan</p>
+    <p>plain HTML/CSS · deployed via GitHub Actions</p>
   </footer>
 
   <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">↑</button>
