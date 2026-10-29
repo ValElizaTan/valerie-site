@@ -76,3 +76,17 @@ async function loadRepos() {
 }
 
 loadRepos();
+
+const backToTop = document.getElementById('back-to-top');
+const hero = document.getElementById('hero');
+
+// Show the button only once the hero has scrolled up out of view.
+new IntersectionObserver(([entry]) => {
+  const pastHero = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
+  backToTop.classList.toggle('is-visible', pastHero);
+}).observe(hero);
+
+backToTop.addEventListener('click', () => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+});
