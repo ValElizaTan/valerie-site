@@ -3,6 +3,26 @@ const REPOS_URL = `https://api.github.com/users/${GITHUB_USER}/repos?sort=update
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const themeToggle = document.getElementById('theme-toggle');
+
+function syncThemeToggle() {
+  const dark = document.body.classList.contains('dark');
+  themeToggle.textContent = dark ? 'Light mode' : 'Dark mode';
+  themeToggle.setAttribute('aria-pressed', String(dark));
+}
+
+themeToggle.addEventListener('click', () => {
+  const dark = document.body.classList.toggle('dark');
+  try {
+    sessionStorage.setItem('theme', dark ? 'dark' : 'light');
+  } catch (err) {
+    // Storage can be blocked (e.g. private mode); the toggle still works for this page view.
+  }
+  syncThemeToggle();
+});
+
+syncThemeToggle();
+
 function showMessage(container, text) {
   const p = document.createElement('p');
   p.className = 'muted';
