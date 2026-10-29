@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valerie Tan · Portfolio</title>
+  <meta name="description" content="Valerie Tan, software engineering student at the Singapore Institute of Technology.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#hero">Valerie Tan</a>
+      <nav aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#repos">Repos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="container">
+      <p class="eyebrow">Hello, I'm</p>
+      <h1>Valerie Tan</h1>
+      <p class="tagline">Software engineering student building reliable, well-tested web applications.</p>
+      <ul class="links">
+        <li><a class="button" href="mailto:you@example.com">Email</a></li>
+        <li><a class="button button-ghost" href="https://github.com/ValElizaTan" rel="noopener">GitHub</a></li>
+        <li><a class="button button-ghost" href="https://www.linkedin.com/in/tan-valerie" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </section>
+
+    <section id="about" class="container">
+      <h2>About</h2>
+      <p>I'm a third-year student at the Singapore Institute of Technology, based in Singapore. My coursework and team projects span full-stack web development, object-oriented design, data analysis and software testing, and I'm currently focused on performance testing and optimisation.</p>
+      <p>I enjoy turning requirements into working software, collaborating in teams, and making sure what I ship is tested and fast.</p>
+    </section>
+
+    <section id="skills" class="container">
+      <h2>Skills</h2>
+      <ul class="tags">
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>HTML &amp; CSS</li>
+        <li>C# / .NET</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>SQL</li>
+        <li>Software testing</li>
+        <li>Performance testing</li>
+        <li>Git &amp; GitHub</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="container">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Asteri</h3>
+          <p>Fragrance e-commerce prototype with Singapore-inspired scents, custom gifts, rewards and a full checkout flow.</p>
+          <a href="https://github.com/ValElizaTan/Asteri" rel="noopener">View on GitHub →</a>
+        </article>
+        <article class="card">
+          <h3>Skillset Analysis from JD Data</h3>
+          <p>NLP analysis in Python that extracts and categorises skills from job descriptions across industries and seniority levels.</p>
+          <a href="https://skillset-analysis-from-jd-data.onrender.com" rel="noopener">View live demo →</a>
+        </article>
+        <article class="card">
+          <h3>Sample Lab Game</h3>
+          <p>Java game applying object-oriented design principles, built over a series of SIT labs.</p>
+          <a href="https://github.com/ValElizaTan/SampleLabGame" rel="noopener">View on GitHub →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="repos" class="container">
+      <h2>GitHub repositories</h2>
+      <p class="muted">Recently updated public repositories, loaded live from GitHub.</p>
+      <div id="repo-list" class="grid" aria-live="polite">
+        <p class="muted">Loading repositories…</p>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <p>I'm open to internship and graduate opportunities. The best way to reach me is by email.</p>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:you@example.com">you@example.com</a></li>
+        <li><span>GitHub</span><a href="https://github.com/ValElizaTan" rel="noopener">github.com/ValElizaTan</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/tan-valerie" rel="noopener">linkedin.com/in/tan-valerie</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>© <span id="year"></span> Valerie Tan</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
